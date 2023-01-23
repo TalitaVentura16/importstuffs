@@ -1,0 +1,41 @@
+<?php
+
+<div class="card">
+  <div class="card-header">
+    {{ title }}
+  </div>
+  <div class="card-body">
+    {{{ uploadform }}}
+  </div>
+
+
+<a href="/blocks/importstuffs/delete.php?id=0">Deletar Todos</a>
+<table class="table">
+  
+  <tr>
+   <td>Descrição</td>
+   <td>Tipo</td>
+   <td>Ações</tr>
+  </tr>
+  
+  {{#records}}
+  <tr>
+   <td>{{ description }}</td>
+   <td>
+     {{#type }} Curso {{/type}}
+     {{^type}} Usuários {{/type}}
+     </td>
+     <td>
+     {{#type}}
+      <a href="/blocks/importstuffs/createcourses.php?id={{id}}">Importar Cursos</a>
+     {{/type}}
+     {{^type}}
+      <a href="/blocks/importstuffs/createusers.php?id={{id}}">Importar Usúarios</a>
+     {{/type}}
+      <a href="/blocks/importstuffs/delete.php?id={{id}}">Deletar</a>
+    </tr>
+    {{/records}}
+  
+</table>
+
+</div>
